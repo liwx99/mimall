@@ -5,15 +5,22 @@
 </template>
 
 <script>
-
+import storage from './storage'
 //import axios from 'axios'
 //import jsonp from 'jsonp'
 
 export default {
-  name: 'App',
+  name: 'app',
+  components:{},
   data(){
     return{   
   }
+  },
+  mounted(){
+    //storage.setItem("a",1);
+    //storage.setItem("user",{'a':1});
+    //storage.setItem("abc",{a:1},"user");
+    storage.clear('a');
   }
 }
 </script>
