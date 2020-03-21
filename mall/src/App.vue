@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import storage from './storage'
+//import storage from './storage'
 //import axios from 'axios'
 //import jsonp from 'jsonp'
 
@@ -14,13 +14,19 @@ export default {
   components:{},
   data(){
     return{   
+     res:{}
   }
   },
   mounted(){
-    //storage.setItem("a",1);
-    //storage.setItem("user",{'a':1});
-    //storage.setItem("abc",{a:1},"user");
-    storage.clear('a');
+    //本地加载请求静态json文件的形式 mock
+ // this.axios.get('/mock/user/login.json').then(()=>{
+   // this.res=res;
+ // });
+    //通过easy-mock平台实现数据mock
+    //本地集成mockjs实现数据mock
+   this.axios.get('/user/login').then((res)=>{
+     this.res=res;
+   });
   }
 }
 </script>
