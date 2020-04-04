@@ -24,7 +24,7 @@
                     </div>
                     <div class="tips">
                         <div class="sms" @click="register">手机短信登录/注册</div>
-                        <div class="reg">立即注册<span>|</span>忘记密码?</div>
+                        <div class="reg"><a href="/#/register">立即注册</a><span>|</span>忘记密码?</div>
                     </div>
                 </div>
             </div>
@@ -41,6 +41,7 @@
     </div>
 </template>
 <script>
+import {Message} from 'element-ui'
 export default {
     name:'login',
     data(){
@@ -58,19 +59,24 @@ export default {
                 username,
                 password
             }).then((res)=>{
-                this.$cookie.set('userId',res.id,{expires:'1M'});
+                this.$cookie.set('userId',res.id,{expires:'Session'});
                 //to-do 保存用户名
                 this.$store.dispatch('saveUserName',res.username);
-                this.$router.push('/index');
+                this.$router.push({
+                   name  :'index',
+                   params:{
+                        from:"login"
+                    }
+                });
             })
         },
-        register(){
+         register(){
             this.axios.post('/user/register',{
-                username:'admin1',
-                password:'admin1',
-                email:'admin1@163.com'
+                username:'fat',
+                password:'123456',
+                email:'fat@11.com'
             }).then(()=>{
-               alert('注册成功');
+              Message.success('注册成功');
             })
         }
         
@@ -145,6 +151,9 @@ export default {
                         color: #ff6600;
                     }
                     .reg{
+                        a{
+                             color: #ff6600;
+                        }
                         color: #999999;
                         span{
                             margin: 0 7px;

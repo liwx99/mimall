@@ -18,8 +18,10 @@ export default {
   }
   },
   mounted(){
+    if(this.$cookie.get('userId')){//如果用户有登录了，才去调用购物车数量，名字
     this.getUser();
     this.getCartCount();
+    }
   },
   methods:{
     getUser(){
