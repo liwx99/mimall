@@ -14,7 +14,7 @@
     "core-js": "^3.6.4",
     "node-sass": "^4.13.1",
     "qrcode": "^1.4.4",
-    "swiper": "^5.3.6",
+    "swiper": "^6.5.1",
     "vue": "^2.6.11",
     "vue-awesome-swiper": "^4.0.4",
     "vue-cookies": "^1.7.0",
